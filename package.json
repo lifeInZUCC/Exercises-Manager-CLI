@@ -1,0 +1,23 @@
+{
+  "name": "topicsharingtools",
+  "version": "0.0.1",
+  "description": "一个用于抓取网页中的习题，制作成Markdown格式，在博客发布分享的工具链。",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonlinearthink/TopicSharingTools.git"
+  },
+  "author": "Jaycee Chow",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nonlinearthink/TopicSharingTools/issues"
+  },
+  "homepage": "https://github.com/nonlinearthink/TopicSharingTools#readme",
+  "dependencies": {
+    "commander": "^5.0.0",
+    "mocha": "^7.1.1"
+  }
+}

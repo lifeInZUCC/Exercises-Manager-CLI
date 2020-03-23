@@ -1,0 +1,5 @@
+.*/
+*.json
+!config.json
+!package.json
+node_modules/

@@ -1,0 +1,8 @@
+{
+    "titleLevel": "###",
+    "choiceHeader": "|编号|选项|",
+    "choiceNeck": "-|-|-",
+    "colorMark": "<font color=\"red\">",
+    "input": "data.json",
+    "output": "output.txt"
+}
