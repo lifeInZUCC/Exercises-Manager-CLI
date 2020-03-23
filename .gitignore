@@ -1,5 +1,13 @@
+# 忽略所有隐藏文件
 .*/
+
+# 忽略所有json文件，除了几个配置文件
 *.json
 !config.json
 !package.json
+
+# 忽略所有依赖
 node_modules/
+
+# 忽略所有数据文件
+data/
