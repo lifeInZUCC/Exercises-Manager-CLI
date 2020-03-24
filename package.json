@@ -1,6 +1,6 @@
 {
   "name": "topicsharingtools",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "一个用于抓取网页中的习题，制作成Markdown格式，在博客发布分享的工具链。",
   "main": "index.js",
   "scripts": {
