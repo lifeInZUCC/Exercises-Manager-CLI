@@ -1,23 +1,45 @@
 {
-  "name": "topicsharingtools",
-  "version": "0.1.0",
-  "description": "一个用于抓取网页中的习题，制作成Markdown格式，在博客发布分享的工具链。",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
+  "name": "exercises-manager",
+  "description": "一个用于帮助我爬取网页中的习题，管理、格式转换的工具链。",
+  "keywords": [
+    "exercises",
+    "topic",
+    "manager"
+  ],
+  "version": "0.1.3",
+  "author": "Jaycee Chow",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nonlinearthink/TopicSharingTools/issues",
+    "email": "2832203391@qq.com"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nonlinearthink/TopicSharingTools.git"
   },
-  "author": "Jaycee Chow",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/nonlinearthink/TopicSharingTools/issues"
-  },
   "homepage": "https://github.com/nonlinearthink/TopicSharingTools#readme",
+  "main": "index.js",
+  "bin": {
+    "j2m": "bin/"
+  },
+  "directories": {
+    "lib": "包含Javascript代码",
+    "doc": "包含文档和说明性文件",
+    "bin": "包含可执行文件",
+    "test": "包含单元测试文件",
+    "example": "包含帮助使用者快速了解的例子"
+  },
+  "scripts": {
+    "install": "",
+    "uninstall": "",
+    "build": "",
+    "test": "mocha"
+  },
   "dependencies": {
-    "commander": "^5.0.0",
-    "mocha": "^7.1.1"
+    "commander": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   }
 }

@@ -1,8 +1,7 @@
 const command = require("child_process");
 const fs = require("fs");
-const config = require("./config.json");
-const options = require("./lib/options");
+const transform = require("./lib/transform");
+const options = require("./lib/");
 
-let { input: inputFile, output: outputFile } = config;
-
-options.toMarkdown(`data/${inputFile}`, `data/${outputFile}`);
+// transform.toMarkdown(`data/data.json`);
+console.log(options.replaceExt("data.md",".md"));
