@@ -1,4 +1,4 @@
-const fileops = require("../lib/middleware/fileops");
+const fileops = require("../lib/fileops");
 const chai = require("chai"),
     expect = chai.expect;
 

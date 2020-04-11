@@ -5,17 +5,21 @@
     "colorMark": "<font color=\"red\">",
     "origin": {
         "transform": true,
-        "single": [],
-        "set": [],
-        "storage": ""
+        "storage": "origin",
+        "extra": {
+            "file": [],
+            "dir": []
+        }
     },
     "data": {
         "transform": true,
-        "single": [],
-        "set": [],
-        "storage": ""
+        "storage": "data",
+        "extra": {
+            "file": [],
+            "dir": []
+        }
     },
     "view": {
-        "storage": ""
+        "storage": "view"
     }
 }
