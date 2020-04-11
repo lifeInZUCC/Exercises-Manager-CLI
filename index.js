@@ -22,9 +22,14 @@ function pathPack(path, pre = "data") {
 */
 function pathSwitch(source, mode = 0) {
     modemap = [`${origin.storage}`, `${data.storage}`, `${view.storage}`];
-    return source.replace(/^(data)\/(.*)\/(.*\..*)$/, `$1/${modemap[mode]}/$3`);
+    if (
+        /^(data)\/(.*)\/(.*\..*)$/.test(source) ||
+        /^(data)(\/)(.*\..*)$/.test(source)
+    )
+        return `${RegExp.$1}/${modemap[mode]}/${RegExp.$3}`;
 }
 
+console.log("data/4.json".replace(/^(data)\/(.*)\/(.*\..*)$/, `$1/view/$3 $2`));
 var mode = [origin, data, view],
     name = ["origin", "data", "view"],
     behavior = [core.formData, core.dataView, null];
@@ -49,9 +54,18 @@ workflow = new Promise((resolve, reject) => {
 for (let i = 0; i < mode.length - 1; i++) {
     workflow = workflow.then((fileSet) => {
         //origin流转向data流
-        if (mode[i].transform) {
+        var nextSet = [];
+        if (mode[i].switch) {
             console.log(`\nworkflow: ${name[i]}->${name[i + 1]}...`);
-            var nextSet = fileSet.map((file) => {
+            mode[i].extra.dir.forEach((dir) => {
+                fileops.fileInDir(dir).forEach((file) => {
+                    fileSet.push(file);
+                });
+            });
+            mode[i].extra.file.forEach((file) => {
+                fileSet.push(file);
+            });
+            nextSet = fileSet.map((file) => {
                 return fileops.replaceExt(
                     pathSwitch(file, i + 1),
                     mode[i + 1].template
