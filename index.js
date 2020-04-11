@@ -5,39 +5,64 @@ const core = require("./lib/core");
 //导入配置
 const { origin, data, view } = require("./config.json");
 
+/*
+包装path字符串，目的是限制所有的非项目文件到一个特定的目录下，做到工程与使用的分离
+pre设置为data意味着所有的origin、data、view文件都会被放到一个data子目录中
+*/
 function pathPack(path, pre = "data") {
     return `${pre}/${path}`;
 }
 
-function pathSwitch(source = "", mode = 0) {
+/*
+为了方便转换模式的时候变换path字符串
+对于mode参数的说明：
+0，代表path的格式应该切换到origin mode
+1，代表path的格式应该切换到data mode
+2，代表path的格式应该切换到view mode
+*/
+function pathSwitch(source, mode = 0) {
     modemap = [`${origin.storage}`, `${data.storage}`, `${view.storage}`];
     return source.replace(/^(data)\/(.*)\/(.*\..*)$/, `$1/${modemap[mode]}/$3`);
 }
 
-function init() {
-    console.log("初始化...");
-    fs.mkdir(pathPack(origin.storage), (err) => {
-        if (err) console.warn(err.message);
-    });
-    fs.mkdir(pathPack(data.storage), (err) => {
-        if (err) console.warn(err.message);
-    });
-    fs.mkdir(pathPack(view.storage), (err) => {
-        if (err) console.warn(err.message);
-    });
-    fs.writeFileSync(".init", "init mark");
-    console.log("初始化完成");
+var mode = [origin, data, view],
+    name = ["origin", "data", "view"],
+    behavior = [core.formData, core.dataView, null];
+
+console.log("检查文件");
+for (let check of mode) {
+    let path = pathPack(check.storage);
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path);
+        console.log(`mkdir ${path}`);
+    } else {
+        console.log(`${path} already exists`);
+    }
 }
+console.log("检查完毕\n");
 
-var isinit = fs.existsSync(".init");
-if (!isinit) init();
-
-var originSet = fileops.fileInDir(pathPack(origin.storage));
-originSet.forEach((file) => {
-    core.formData(file, pathSwitch(file, 1));
+workflow = new Promise((resolve, reject) => {
+    var fileSet = fileops.fileInDir(pathPack(mode[0].storage));
+    resolve(fileSet);
 });
 
-var dataSet = fileops.fileInDir(pathPack(data.storage));
-dataSet.forEach((file) => {
-    core.dataView(file, pathSwitch(file, 2));
-});
+for (let i = 0; i < mode.length - 1; i++) {
+    workflow = workflow.then((fileSet) => {
+        //origin流转向data流
+        if (mode[i].transform) {
+            console.log(`\nworkflow: ${name[i]}->${name[i + 1]}...`);
+            var nextSet = fileSet.map((file) => {
+                return fileops.replaceExt(
+                    pathSwitch(file, i + 1),
+                    mode[i + 1].template
+                );
+            });
+            for (let j = 0; j < nextSet.length; j++) {
+                console.log(`from ${fileSet[j]} to ${nextSet[j]}`);
+                behavior[i](fileSet[j], nextSet[j]);
+            }
+            console.log("next work.\n");
+        }
+        return nextSet;
+    });
+}
