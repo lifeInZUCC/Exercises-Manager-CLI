@@ -2,5 +2,20 @@
     "titleLevel": "###",
     "tableHeader": "|编号|选项|",
     "tableNeck": "|:-|:-|",
-    "colorMark": "<font color=\"red\">"
+    "colorMark": "<font color=\"red\">",
+    "origin": {
+        "transform": true,
+        "single": [],
+        "set": [],
+        "storage": ""
+    },
+    "data": {
+        "transform": true,
+        "single": [],
+        "set": [],
+        "storage": ""
+    },
+    "view": {
+        "storage": ""
+    }
 }
