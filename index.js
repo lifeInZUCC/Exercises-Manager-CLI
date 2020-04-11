@@ -53,7 +53,6 @@ workflow = new Promise((resolve, reject) => {
 
 for (let i = 0; i < mode.length - 1; i++) {
     workflow = workflow.then((fileSet) => {
-        //origin流转向data流
         var nextSet = [];
         if (mode[i].switch) {
             console.log(`\nworkflow: ${name[i]}->${name[i + 1]}...`);

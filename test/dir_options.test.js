@@ -49,19 +49,19 @@ describe("模块测试 dir_fileops", () => {
 
     describe("函数测试 replaceExt", () => {
         it("普通替换", () => {
-            expect(fileops.replaceExt("index.json", ".js")).is.equal(
+            expect(fileops.replaceExt("index.json", "js")).is.equal(
                 "index.js"
             );
         });
         it("大小写敏感", () => {
-            expect(fileops.replaceExt("main.c", ".C")).is.equal("main.C");
+            expect(fileops.replaceExt("main.c", "C")).is.equal("main.C");
         });
         it("无后缀替换成有后缀", () => {
-            expect(fileops.replaceExt("README", ".md")).is.equal("README.md");
+            expect(fileops.replaceExt("README", "md")).is.equal("README.md");
         });
         it("相同后缀替换", () => {
-            expect(fileops.replaceExt("README.md", ".md")).is.equal(
-                "README.md.md"
+            expect(fileops.replaceExt("README.md", "md")).is.equal(
+                "README.md"
             );
         });
     });

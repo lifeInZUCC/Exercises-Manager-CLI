@@ -8,9 +8,7 @@
         "template": "txt",
         "storage": "origin",
         "extra": {
-            "file": [
-                "data/4.txt"
-            ],
+            "file": [],
             "dir": []
         }
     },
@@ -20,9 +18,7 @@
         "storage": "data",
         "extra": {
             "file": [],
-            "dir": [
-                "data/extra"
-            ]
+            "dir": []
         }
     },
     "view": {
