@@ -1,4 +1,4 @@
-# TopicSharingTools
+# exercises-manager
 ## 简介
 一个用于抓取网页中的习题，制作成Markdown格式，在博客中分享的工具链。
 
