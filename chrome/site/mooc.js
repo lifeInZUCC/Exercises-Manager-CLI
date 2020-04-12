@@ -26,7 +26,7 @@ function saveJSON(filename, data) {
     a.dispatchEvent(event);
 }
 
-(function() {
+(function () {
     var topic = [];
     var options = ["A", "B", "C", "D"];
     for (
@@ -64,7 +64,7 @@ function saveJSON(filename, data) {
                             [j].getElementsByClassName("u-icon-wrong").length ==
                         0
                             ? "T"
-                            : "F"
+                            : "F",
                 });
             } else {
                 temp.choice.push({
@@ -73,7 +73,7 @@ function saveJSON(filename, data) {
                         .getElementsByClassName("m-choiceQuestion")
                         [i].getElementsByClassName("j-choiceBox")[0]
                         .getElementsByClassName("f-richEditorText")[j]
-                        .textContent
+                        .textContent,
                 });
             }
         }

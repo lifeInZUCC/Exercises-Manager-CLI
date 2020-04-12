@@ -1,0 +1,22 @@
+{
+    "name": "Exercises Manager Demo",
+    "version": "0.1",
+    "description": "下载网页上的题库",
+    "permissions": [
+        "declarativeContent",
+        "storage",
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_icon": "img/topic.png",
+        "default_title": "Exercises Manager Demo",
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}

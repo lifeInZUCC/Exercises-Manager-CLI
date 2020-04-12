@@ -26,7 +26,7 @@ function saveJSON(filename, data) {
     a.dispatchEvent(event);
 }
 
-(function() {
+(function () {
     var topic = [];
     var options = ["A", "B", "C", "D"];
     for (let takeQuestionDiv of document.getElementsByTagName("fieldset")) {
@@ -43,7 +43,7 @@ function saveJSON(filename, data) {
                 option: options[i],
                 content: takeQuestionDiv
                     .getElementsByTagName("label")
-                    [i].innerText.replace(/\s+/g, "")
+                    [i].innerText.replace(/\s+/g, ""),
             });
         }
         topic.push(temp);
