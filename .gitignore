@@ -8,5 +8,4 @@ node_modules/
 # 忽略所有数据文件
 data/
 *.json
-!example/
 !package.json
