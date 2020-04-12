@@ -6,7 +6,7 @@
     "topic",
     "manager"
   ],
-  "version": "0.2.4",
+  "version": "0.2.6",
   "author": "Jaycee Chow",
   "license": "GPL-3.0",
   "bugs": {
@@ -30,7 +30,10 @@
     "example": "包含帮助使用者快速了解的例子"
   },
   "scripts": {
+    "preinstall": "node init.js",
     "start": "node index.js",
+    "prerestart": "node clean.js",
+    "restart": "node index.js",
     "test": "mocha"
   },
   "dependencies": {
