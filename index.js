@@ -34,30 +34,24 @@ var mode = [origin, data, view],
     behavior = [core.formData, core.dataView, null];
 
 console.log("检查文件");
-if (!fs.existsSync("data")) {
-    fs.mkdirSync("data");
-}
 for (let check of mode) {
     let path = pathPack(check.storage);
-    if (!fs.existsSync(path)) {
-        fs.mkdirSync(path);
-        console.log(`mkdir ${path}`);
-    } else {
-        console.log(`${path} already exists`);
-    }
+    fileops.mkdirs(path);
 }
 console.log("检查完毕\n");
 
 workflow = new Promise((resolve, reject) => {
-    var fileSet = fileops.fileInDir(pathPack(mode[0].storage));
-    resolve(fileSet);
+    resolve();
 });
 
 for (let i = 0; i < mode.length - 1; i++) {
-    workflow = workflow.then((fileSet) => {
+    workflow = workflow.then(() => {
         var nextSet = [];
         if (mode[i].switch) {
             console.log(`\nworkflow: ${name[i]}->${name[i + 1]}...`);
+            var fileSet = fileops
+                .fileInDir(pathPack(mode[i].storage))
+                .filter((file) => RegExp(`${mode[i].template}$`).test(file));
             mode[i].extra.dir.forEach((dir) => {
                 fileops.fileInDir(dir).forEach((file) => {
                     fileSet.push(file);
@@ -78,6 +72,5 @@ for (let i = 0; i < mode.length - 1; i++) {
             }
             console.log("next work.\n");
         }
-        return nextSet;
     });
 }
