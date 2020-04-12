@@ -4,9 +4,9 @@
 
 # 忽略所有依赖
 node_modules/
-package-lock.json
 
 # 忽略所有数据文件
 data/
 *.json
 !example/
+!package.json
