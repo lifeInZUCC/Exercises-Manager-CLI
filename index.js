@@ -29,12 +29,14 @@ function pathSwitch(source, mode = 0) {
         return `${RegExp.$1}/${modemap[mode]}/${RegExp.$3}`;
 }
 
-console.log("data/4.json".replace(/^(data)\/(.*)\/(.*\..*)$/, `$1/view/$3 $2`));
 var mode = [origin, data, view],
     name = ["origin", "data", "view"],
     behavior = [core.formData, core.dataView, null];
 
 console.log("检查文件");
+if (!fs.existsSync("data")) {
+    fs.mkdirSync("data");
+}
 for (let check of mode) {
     let path = pathPack(check.storage);
     if (!fs.existsSync(path)) {
