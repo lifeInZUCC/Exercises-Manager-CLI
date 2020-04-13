@@ -32,7 +32,7 @@
   "scripts": {
     "preinstall": "node init.js",
     "start": "node index.js",
-    "prerestart": "node clean.js",
+    "prerestart": "node clean.js && node init.js",
     "restart": "node index.js",
     "test": "mocha"
   },
