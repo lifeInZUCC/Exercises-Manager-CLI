@@ -47,6 +47,7 @@ for (let i = 0; i < mode.length - 1; i++) {
             mode[i].extra.file.forEach((file) => {
                 fileSet.push(file);
             });
+            console.log(fileSet);
             //获得流的下一个状态
             nextSet = fileSet.map((file) => {
                 console.log(file);
@@ -55,6 +56,7 @@ for (let i = 0; i < mode.length - 1; i++) {
                     mode[i + 1].template
                 );
             });
+
             //处理流
             for (let j = 0; j < nextSet.length; j++) {
                 //冲突检测与处理，通过不断在流的后面添加一个递增数字

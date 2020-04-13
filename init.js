@@ -1,12 +1,16 @@
 const fs = require("fs");
 const pathPack = require("./lib/pathops").pathPack;
 const fileops = require("./lib/fileops");
+const adapter = require("./lib/adapter");
 
 var Config = {
-    titleLevel: "###",
-    tableHeader: "|编号|选项|",
-    tableNeck: "|:-|:-|",
-    colorMark: '<font color="red">',
+    system: {},
+    format: {
+        titleLevel: "###",
+        tableHeader: "|编号|选项|",
+        tableNeck: "|:-|:-|",
+        colorMark: '<font color="red">',
+    },
     origin: {
         switch: true,
         template: "txt",
@@ -31,6 +35,8 @@ var Config = {
     },
 };
 
+const sysmsg = new adapter.Adapter().message();
+Config.system = sysmsg;
 fs.writeFileSync("config.json", JSON.stringify(Config, null, "\t"));
 
 //检查需要的目录是否被创建成功
