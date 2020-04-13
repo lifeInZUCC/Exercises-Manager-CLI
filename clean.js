@@ -1,3 +1,3 @@
-const fileops = require("./lib/fileops");
+const fs = require("fs");
 
-fileops.rmdirs("data");
+fs.rmdirSync("data", { recursive: true });
