@@ -14,7 +14,7 @@
         "persistent": false
     },
     "browser_action": {
-        "default_icon": "img/topic.png",
+        "default_icon": "img/download.png",
         "default_title": "Exercises Manager Demo",
         "default_popup": "popup.html"
     },
