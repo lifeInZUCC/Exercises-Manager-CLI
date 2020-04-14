@@ -1,5 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const figlet = require("figlet");
+
+console.log(figlet.textSync("Exercises Manager"));
 
 var Config = {
     origin: {
