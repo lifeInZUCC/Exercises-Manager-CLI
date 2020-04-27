@@ -30,7 +30,7 @@
     "example": "包含帮助使用者快速了解的例子"
   },
   "scripts": {
-    "preinstall": "node init.js",
+    "postinstall": "node init.js",
     "start": "node index.js",
     "prerestart": "node clean.js && node init.js",
     "restart": "node index.js",
