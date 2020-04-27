@@ -9,3 +9,4 @@ node_modules/
 data/
 *.json
 !package.json
+!config.json
