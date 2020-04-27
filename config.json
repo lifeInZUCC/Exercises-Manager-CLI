@@ -2,7 +2,7 @@
 	"origin": {
 		"switch": true,
 		"template": "txt",
-		"storage": "orig",
+		"storage": "origin",
 		"extra": {
 			"file": [],
 			"dir": []
