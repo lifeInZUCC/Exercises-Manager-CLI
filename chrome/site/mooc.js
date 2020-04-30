@@ -27,7 +27,7 @@ function saveJSON(filename, data) {
 }
 
 (function () {
-    if (!/mooc/.test(window.location.href)) {
+    if (!/icourse163/.test(window.location.href)) {
         window.alert("检测到不符合目标网站");
         return;
     }
@@ -48,14 +48,14 @@ function saveJSON(filename, data) {
             j <
             document
                 .getElementsByClassName("m-choiceQuestion")
-                [i].getElementsByClassName("j-choiceBox")[0]
+                [i].getElementsByClassName("j-choicebox")[0]
                 .getElementsByClassName("f-richEditorText").length;
             j++
         ) {
             if (
                 document
                     .getElementsByClassName("m-choiceQuestion")
-                    [i].getElementsByClassName("j-choiceBox")[0]
+                    [i].getElementsByClassName("j-choicebox")[0]
                     .getElementsByClassName("f-richEditorText").length == 2
             ) {
                 temp.choice.push({
@@ -63,7 +63,7 @@ function saveJSON(filename, data) {
                     content:
                         document
                             .getElementsByClassName("m-choiceQuestion")
-                            [i].getElementsByClassName("j-choiceBox")[0]
+                            [i].getElementsByClassName("j-choicebox")[0]
                             .getElementsByClassName("f-richEditorText")
                             [j].getElementsByClassName("u-icon-wrong").length ==
                         0
@@ -75,7 +75,7 @@ function saveJSON(filename, data) {
                     option: options[j],
                     content: document
                         .getElementsByClassName("m-choiceQuestion")
-                        [i].getElementsByClassName("j-choiceBox")[0]
+                        [i].getElementsByClassName("j-choicebox")[0]
                         .getElementsByClassName("f-richEditorText")[j]
                         .textContent,
                 });
@@ -84,7 +84,7 @@ function saveJSON(filename, data) {
         try {
             temp.answer = document
                 .getElementsByClassName("m-choiceQuestion")
-                [i].getElementsByClassName("j-choiceBox")[0]
+                [i].getElementsByClassName("j-choicebox")[0]
                 .getElementsByClassName("tt2")[0].textContent;
         } catch (err) {
             console.log(err);
