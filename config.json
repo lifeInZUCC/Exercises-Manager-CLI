@@ -14,7 +14,9 @@
 		"storage": "data",
 		"extra": {
 			"file": [],
-			"dir": []
+			"dir": [
+				"/Users/jayceechow/Downloads"
+			]
 		}
 	},
 	"view": {

@@ -27,6 +27,10 @@ function saveJSON(filename, data) {
 }
 
 (function () {
+    if (!/mooc/.test(window.location.href)) {
+        window.alert("检测到不符合目标网站");
+        return;
+    }
     var topic = [];
     var options = ["A", "B", "C", "D"];
     for (
