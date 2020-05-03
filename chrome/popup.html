@@ -4,35 +4,60 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercises Manager Demo</title>
+    <title>Exercises Manager</title>
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400" />
+    <script src="./js/jquery-3.5.0.min.js"></script>
     <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
       body {
         width: 300px;
       }
 
-      button {
-        width: 49%;
-        height: 40px;
-        border-width: 0px;
-        border-radius: 1px;
-        background: #1E90FF;
-        cursor: pointer;
-        outline: none;
-        font-family: Microsoft YaHei;
+      #app #title {
+        background-color: #1E90FF;
+        text-align: center;
         color: white;
+        padding: 20px 0px;
+        border-radius: 50% 0 50% 0;
+      }
+
+      #app #main {
+        display: flex;
+        flex-flow: column wrap;
+      }
+
+      .btn-round {
+        width: 100%;
+        border-radius: 10px 10px;
+        color: #e7e2e2;
         font-size: 17px;
+        padding: 10px 0;
+      }
+      #mooc:hover{
+        background-color: #ffa51e;
+      }
+      #bb:hover{
+        background-color: #34e011;
+      }
+      #pta:hover{
+        background-color: #ff4b1e;
       }
     </style>
   </head>
 
   <body>
     <div id="app">
-      <h2>支持的网站</h2>
-      <button id="mooc" class="button">mooc</button>
-      <button id="bb" class="button">bb</button>
+      <h1 id="title">Exercises Manager</h1>
+      <div id="main"></div>
+      <button id="mooc" class="btn-round">mooc</button>
+      <button id="bb" class="btn-round">bb</button>
+      <button id="pta" class="btn-round">pta</button>
     </div>
-    <script src="popup.js"></script>
   </body>
+  <script src="popup.js"></script>
 
 </html>
