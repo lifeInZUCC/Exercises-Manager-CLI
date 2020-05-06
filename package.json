@@ -6,7 +6,7 @@
     "topic",
     "manager"
   ],
-  "version": "1.2.5",
+  "version": "1.3.0",
   "author": "Jaycee Chow",
   "license": "GPL-3.0",
   "bugs": {
@@ -24,16 +24,10 @@
   },
   "scripts": {
     "postinstall": "node init.js",
-    "start": "node index.js",
-    "restart": "node clean.js",
-    "postrestart": "node init.js & node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "commander": "*",
     "figlet": "*"
-  },
-  "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
   }
 }
