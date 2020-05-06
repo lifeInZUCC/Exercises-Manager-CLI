@@ -6,7 +6,7 @@
     "topic",
     "manager"
   ],
-  "version": "1.2.0",
+  "version": "1.2.5",
   "author": "Jaycee Chow",
   "license": "GPL-3.0",
   "bugs": {
@@ -19,22 +19,14 @@
   },
   "homepage": "https://github.com/nonlinearthink/TopicSharingTools#readme",
   "main": "index.js",
-  "bin": {
-    "j2m": "bin/"
-  },
   "directories": {
-    "lib": "包含Javascript代码",
-    "doc": "包含文档和说明性文件",
-    "bin": "包含可执行文件",
-    "test": "包含单元测试文件",
-    "example": "包含帮助使用者快速了解的例子"
+    "lib": "包含Javascript代码"
   },
   "scripts": {
     "postinstall": "node init.js",
     "start": "node index.js",
-    "prerestart": "node clean.js && node init.js",
-    "restart": "node index.js",
-    "test": "mocha"
+    "restart": "node clean.js",
+    "postrestart": "node init.js & node index.js"
   },
   "dependencies": {
     "commander": "*",

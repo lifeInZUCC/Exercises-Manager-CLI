@@ -24,10 +24,9 @@ const config = {
         storage: "view",
     },
     viewformat: {
-        titleLevel: "###",
-        tableHeader: "|编号|选项|",
-        tableNeck: "|:-|:-|",
-        colorMark: '<font color="red">',
+        size: "middle",
+        align: "left",
+        color: "red",
     },
 };
 
