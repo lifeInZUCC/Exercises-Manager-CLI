@@ -27,15 +27,16 @@ function saveJSON(filename, data) {
 }
 
 (function () {
+    //TODO 使用css选择器重写这个文件
     if (!/bb/.test(window.location.href)) {
         window.alert("检测到不符合目标网站");
         return;
     }
     var topic = [];
-    var options = ["A", "B", "C", "D"];
+    var options = ["A", "B", "C", "D", "E", "F"];
     for (let takeQuestionDiv of document.getElementsByTagName("fieldset")) {
         let temp = { topic: "", choice: [], answer: "" };
-        temp.topic = takeQuestionDiv
+        temp.title = takeQuestionDiv
             .getElementsByClassName("vtbegenerated")[0]
             .innerText.replace(/\s+/g, "");
         for (
