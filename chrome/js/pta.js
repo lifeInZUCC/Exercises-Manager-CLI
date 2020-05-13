@@ -59,7 +59,7 @@ function handleSimpleRadio(problems) {
 }
 
 function handleRadio(problems) {
-    const options = ["A", "B", "C", "D"];
+    const options = ["A", "B", "C", "D", "E", "F"];
     var problemObjectSet = [];
     for (let problem of problems) {
         var problemObject = { title: "", choice: [], answer: "" };
